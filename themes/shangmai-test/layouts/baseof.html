@@ -1,34 +1,48 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang | default "en" }}" class="scroll-smooth">
+<html lang="{{ .Site.Language.Lang | default " en" }}" class="scroll-smooth">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
-    
+
     <!-- SEO Meta Tags -->
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-    <meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ else }}{{ .Site.Params.keywords }}{{ end }}">
+    <meta name="keywords" content="{{ with .Params.tags }}{{ delimit . "
+        , " }}{{ else }}{{ .Site.Params.keywords }}{{ end }}">
     <meta name="author" content="{{ .Site.Params.author | default .Site.Title }}">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="{{ .Permalink }}">
-    
+
     <!-- CSS -->
     {{ $mainCss := resources.Get "css/main.css" }}
     {{ $headerCss := resources.Get "css/header.css" }}
     {{ $footerCss := resources.Get "css/footer.css" }}
     {{ if $mainCss }}
+    {{ if eq .Kind "404" }}
+    <link rel="stylesheet" href="{{ $mainCss.Permalink }}">
+    {{ else }}
     <link rel="stylesheet" href="{{ $mainCss.RelPermalink }}">
+    {{ end }}
     {{ else }}
     <!-- Fallback CSS -->
     <link rel="stylesheet" href="/css/main.css">
     {{ end }}
     {{ if $headerCss }}
+    {{ if eq .Kind "404" }}
+    <link rel="stylesheet" href="{{ $headerCss.Permalink }}">
+    {{ else }}
     <link rel="stylesheet" href="{{ $headerCss.RelPermalink }}">
     {{ end }}
+    {{ end }}
     {{ if $footerCss }}
+    {{ if eq .Kind "404" }}
+    <link rel="stylesheet" href="{{ $footerCss.Permalink }}">
+    {{ else }}
     <link rel="stylesheet" href="{{ $footerCss.RelPermalink }}">
+    {{ end }}
     {{ end }}
     {{ if .IsHome }}
     {{ $homeCss := resources.Get "css/home.css" }}
@@ -36,46 +50,53 @@
     <link rel="stylesheet" href="{{ $homeCss.RelPermalink }}">
     {{ end }}
     {{ end }}
-    
+
     <!-- Preload fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ "images/favicons/favicon.ico" | relURL }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ "images/favicons/apple-touch-icon.png" | relURL }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ "images/favicons/favicon-32x32.png" | relURL }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ "images/favicons/favicon-16x16.png" | relURL }}">
-    <link rel="manifest" href="{{ "images/favicons/site.webmanifest" | relURL }}">
-    
+    <link rel="icon" type="image/x-icon" href="{{ " images/favicons/favicon.ico" | relURL }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ " images/favicons/apple-touch-icon.png" | relURL }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ " images/favicons/favicon-32x32.png" | relURL }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ " images/favicons/favicon-16x16.png" | relURL }}">
+    <link rel="manifest" href="{{ " images/favicons/site.webmanifest" | relURL }}">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
     <meta property="og:url" content="{{ .Permalink }}">
-    <meta property="og:title" content="{{ if .IsHome }}{{ i18n "open_graph_title" | default .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
-    <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ i18n "open_graph_description" | default .Site.Params.description }}{{ end }}">
-    <meta property="og:image" content="{{ with .Params.image }}{{ . | absURL }}{{ else }}{{ .Site.Params.default_image | absURL }}{{ end }}">
-    <meta property="og:site_name" content="{{ i18n "site_name_short" | default .Site.Title }}">
-    <meta property="og:locale" content="{{ .Site.Language.LanguageCode | replace "-" "_" }}">
-    {{ range .Site.Languages }}{{ if ne .Lang $.Site.Language.Lang }}<meta property="og:locale:alternate" content="{{ .LanguageCode | replace "-" "_" }}">{{ end }}{{ end }}
-    
+    <meta property="og:title" content="{{ if .IsHome }}{{ i18n " open_graph_title" | default .Site.Title }}{{ else }}{{
+        .Title }}{{ end }}">
+    <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ i18n " open_graph_description" |
+        default .Site.Params.description }}{{ end }}">
+    <meta property="og:image"
+        content="{{ with .Params.image }}{{ . | absURL }}{{ else }}{{ .Site.Params.default_image | absURL }}{{ end }}">
+    <meta property="og:site_name" content="{{ i18n " site_name_short" | default .Site.Title }}">
+    <meta property="og:locale" content="{{ .Site.Language.LanguageCode | replace " -" "_" }}">
+    {{ range .Site.Languages }}{{ if ne .Lang $.Site.Language.Lang }}
+    <meta property="og:locale:alternate" content="{{ .LanguageCode | replace " -" "_" }}">{{ end }}{{ end }}
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{ .Permalink }}">
     <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
-    <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-    <meta name="twitter:image" content="{{ with .Params.image }}{{ . | absURL }}{{ else }}{{ .Site.Params.default_image | absURL }}{{ end }}">
-    {{ with .Site.Params.social.twitter }}<meta name="twitter:creator" content="@{{ . }}">{{ end }}
-    
+    <meta name="twitter:description"
+        content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta name="twitter:image"
+        content="{{ with .Params.image }}{{ . | absURL }}{{ else }}{{ .Site.Params.default_image | absURL }}{{ end }}">
+    {{ with .Site.Params.social.twitter }}
+    <meta name="twitter:creator" content="@{{ . }}">{{ end }}
+
     <!-- Additional Meta Tags -->
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#000000">
     <meta name="msapplication-TileColor" content="#000000">
-    
+
     <!-- RSS Feed -->
     {{ with .OutputFormats.Get "RSS" }}
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
     {{ end }}
-    
+
     <!-- JSON-LD Structured Data -->
     {{ if .IsHome }}
     <script type="application/ld+json">
@@ -156,24 +177,30 @@
     </script>
     {{ end }}
 </head>
+
 <body class="antialiased">
     <!-- Skip to main content for accessibility -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-lg z-50">
+    <a href="#main-content"
+        class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-lg z-50">
         {{ i18n "skip_to_main_content" }}
     </a>
 
     {{ partial "header.html" . }}
-    
+
     <main id="main-content">
         {{ block "main" . }}{{ end }}
     </main>
-    
+
     {{ partial "footer.html" . }}
-    
+
     <!-- JavaScript -->
     {{ $js := resources.Get "js/main.js" }}
     {{ if $js }}
+    {{ if eq .Kind "404" }}
+    <script src="{{ $js.Permalink }}" defer></script>
+    {{ else }}
     <script src="{{ $js.RelPermalink }}" defer></script>
+    {{ end }}
     {{ else }}
     <script src="/js/main.js" defer></script>
     {{ end }}
@@ -183,43 +210,44 @@
     <script src="{{ $carouselJs.RelPermalink }}" defer></script>
     {{ end }}
     {{ end }}
-    
+
     <!-- Analytics (if configured) -->
     {{ with .Site.Params.google_analytics }}
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', '{{ . }}');
     </script>
     {{ end }}
 </body>
+
 </html>
 
 <!-- Accessibility utilities -->
 <style>
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
 
-.focus\:not-sr-only:focus {
-    position: static;
-    width: auto;
-    height: auto;
-    padding: 0.5rem 1rem;
-    margin: 0;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
-}
+    .focus\:not-sr-only:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0.5rem 1rem;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+    }
 </style>
