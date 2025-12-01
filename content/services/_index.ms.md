@@ -1,7 +1,6 @@
 ---
 title: "Perkhidmatan"
 description: "Perkhidmatan polimer profesional termasuk perundingan bahan, formulasi tersuai, dan sokongan teknikal"
-layout: "services"
 ---
 
 ## Perkhidmatan Kami

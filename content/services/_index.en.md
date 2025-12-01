@@ -1,7 +1,6 @@
 ---
 title: "Services"
 description: "Professional polymer services including material consultation, custom formulations, and technical support"
-layout: "services"
 ---
 
 ## Our Services

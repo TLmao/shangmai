@@ -1,7 +1,6 @@
 ---
 title: "技术支持"
 description: "查找我们产品和服务的帮助、文档和资源"
-layout: "support"
 ---
 
 ## 客户支持

@@ -1,7 +1,6 @@
 ---
 title: "Mengenai Kami"
 description: "Ditubuhkan pada 2008, Shanghai Shangmai Polymer Materials Co., Ltd. mengkhusus dalam R&D, reka bentuk, dan pembuatan produk getah, menyampaikan penyelesaian tersuai untuk keadaan operasi yang mencabar."
-layout: "about"
 ---
 
 ## Gambaran Syarikat

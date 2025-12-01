@@ -1,7 +1,6 @@
 ---
 title: "About Us"
 description: "Founded in 2008, Shanghai Shangmai Polymer Materials Co., Ltd. specializes in the R&D, design, and manufacturing of rubber products, delivering customized solutions for demanding operating conditions."
-layout: "about"
 ---
 
 ## Company Overview

@@ -3,7 +3,6 @@ title: "サイトマップ"
 description: "上海尚迈高分子材料有限公司サイトマップ - 全ページとコンテンツへの迅速なナビゲーション"
 date: 2024-01-01
 draft: false
-layout: "sitemap"
 ---
 
 # サイトマップ

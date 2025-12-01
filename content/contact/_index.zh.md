@@ -1,7 +1,6 @@
 ---
 title: "联系我们"
 description: "如需咨询、获取支持或了解我们的产品与服务，欢迎联系团队。"
-layout: "contact"
 ---
 
 ## 联系我们

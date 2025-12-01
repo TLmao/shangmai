@@ -1,7 +1,6 @@
 ---
 title: "Support"
 description: "Find help, documentation, and resources for our products and services"
-layout: "support"
 ---
 
 ## Customer Support

@@ -1,7 +1,6 @@
 ---
 title: "服务支持"
 description: "专业的高分子材料服务，包括材料咨询、定制配方和技术支持"
-layout: "services"
 ---
 
 ## 我们的服务

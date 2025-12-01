@@ -3,7 +3,6 @@ title: "Sitemap"
 description: "Shanghai Shangmai Polymer Sitemap - Quick navigation to all pages and content"
 date: 2024-01-01
 draft: false
-layout: "sitemap"
 ---
 
 # Sitemap

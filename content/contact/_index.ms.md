@@ -1,7 +1,6 @@
 ---
 title: "Hubungi Kami"
 description: "Jika anda memerlukan perundingan, mendapatkan sokongan atau mengetahui tentang produk dan perkhidmatan kami, sila hubungi pasukan kami."
-layout: "contact"
 ---
 
 ## Hubungi Kami

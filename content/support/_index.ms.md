@@ -1,7 +1,6 @@
 ---
 title: "Sokongan"
 description: "Cari bantuan, dokumentasi, dan sumber untuk produk dan perkhidmatan kami"
-layout: "support"
 ---
 
 ## Sokongan Pelanggan

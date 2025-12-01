@@ -1,7 +1,6 @@
 ---
 title: "Contact Us"
 description: "For inquiries, support, or information about our products and services, please contact our team."
-layout: "contact"
 ---
 
 ## Get in Touch
