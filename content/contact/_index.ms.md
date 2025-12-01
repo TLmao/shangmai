@@ -13,6 +13,7 @@ Kami berharap untuk berkomunikasi dengan anda. Sila hubungi kami berkenaan produ
 **Telefon Mudah Alih:** +86-13311782810  
 **Faks:** 021-56789012  
 **E-mel:** <maoxp@smpolymer.com>  
+**E-mel:** <jason.lu@smpolymer.com>  
 **Alamat:** No. 370 Xinni Road, Nicheng Town, Pudong New Area, Shanghai  
 **Poskod:** 201306  
 

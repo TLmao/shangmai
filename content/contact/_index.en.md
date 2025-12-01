@@ -13,6 +13,7 @@ We look forward to hearing from you. Please contact us regarding our polymer pro
 **CellPhone:** +86-13311782810  
 **Fax:** 021-56789012  
 **Email:** <maoxp@smpolymer.com>  
+**Email:** <jason.lu@smpolymer.com>  
 **Address:** No. 370, Xinni Road, Nicheng Town, Pudong New Area, Shanghai  
 **Postal Code:** 201306  
 
