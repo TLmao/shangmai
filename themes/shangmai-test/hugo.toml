@@ -40,7 +40,7 @@ title = 'Shangmai Polymer'
 [module]
   [module.hugoVersion]
     extended = false
-    min = '0.146.0'
+    min = '0.145.0'
 
 [params]
   description = "Innovative solutions for tomorrow's challenges"

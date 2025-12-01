@@ -5,7 +5,7 @@ description = "A Hugo theme for Shangmai Polymer"
 homepage = "https://github.com/shangmai/shangmai-test"
 tags = ["modern", "business", "product-showcase", "responsive", "clean", "professional", "corporate"]
 features = ["responsive", "product-catalog", "multilingual", "search", "animations", "mega-menu", "hero-sections"]
-min_version = "0.146.0"
+min_version = "0.145.0"
 
 [author]
   name = "Alan.Z"
