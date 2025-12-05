@@ -2,7 +2,7 @@
     <div class="container">
         <div class="header-content">
             <!-- Logo -->
-            <a href="{{ relLangURL " /" }}" class="site-logo" aria-label="{{ i18n " aria_goto_homepage" }}">
+            <a href='{{ relLangURL "/" }}' class="site-logo" aria-label='{{ i18n "aria_goto_homepage" }}'>
                 {{ if .Site.Params.logo }}
                 <img src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }}" loading="eager" class="logo-main">
                 <img src="{{ " images/logo/logo-short.gif" | relURL }}" alt="{{ .Site.Title }}" loading="eager"
@@ -13,9 +13,10 @@
             </a>
 
             <!-- Main Navigation -->
-            <nav class="main-nav" id="main-nav" role="navigation" aria-label="{{ i18n " aria_main_navigation" }}">
+            <nav class="main-nav" id="main-nav" role="navigation" aria-label='{{ i18n "aria_main_navigation" }}'>
                 <!-- Mobile Menu Close Button -->
-                <button class="mobile-nav-close mobile-only" id="mobile-nav-close" aria-label="{{ i18n "aria_close_menu" }}">
+                <button class="mobile-nav-close mobile-only" id="mobile-nav-close"
+                    aria-label='{{ i18n "aria_close_menu" }}'>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="arrow-icon">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -23,51 +24,51 @@
                 </button>
                 {{ if .Site.Menus.main }}
                 {{ range .Site.Menus.main }}
-                <a href="{{ .URL | relLangURL }}" class="nav-link {{ if $.IsMenuCurrent " main" . }}active{{ end }}" {{
-                    if .Page }}aria-current="page" {{ end }}>
+                <a href="{{ .URL }}" class="nav-link {{ if $.IsMenuCurrent " main" . }}active{{ end }}" {{ if .Page
+                    }}aria-current="page" {{ end }}>
                     {{ .Name }}
                 </a>
                 {{ end }}
                 {{ else }}
                 <!-- Fallback navigation if no menu is defined -->
-                <a href="{{ relLangURL " /" }}" class="nav-link {{ if .IsHome }}active{{ end }}">{{ i18n
+                <a href='{{ relLangURL "/" }}' class="nav-link {{ if .IsHome }}active{{ end }}">{{ i18n
                     "nav_home_fallback" }}</a>
-                <a href="{{ " /products/" | relLangURL }}" class="nav-link {{ if eq .Section " products" }}active{{ end
+                <a href='{{ "/products/" | relLangURL }}' class="nav-link {{ if eq .Section " products" }}active{{ end
                     }}">{{ i18n "nav_products_fallback" }}</a>
-                <a href="{{ " /about/" | relLangURL }}" class="nav-link {{ if eq .Section " about" }}active{{ end }}">{{
+                <a href='{{ "/about/" | relLangURL }}' class="nav-link {{ if eq .Section " about" }}active{{ end }}">{{
                     i18n "nav_about_fallback" }}</a>
-                <a href="{{ " /contact/" | relLangURL }}" class="nav-link {{ if eq .Section " contact" }}active{{ end
-                    }}">{{ i18n "nav_contact_fallback" }}
-                    {{ end }}
+                <a href='{{ "/contact/" | relLangURL }}' class="nav-link {{ if eq .Section " contact" }}active{{ end
+                    }}">{{ i18n "nav_contact_fallback" }}</a>
+                {{ end }}
 
-                    <!-- Mobile Language Switcher -->
-                    <div class="mobile-lang-switcher mobile-only">
-                        <div class="lang-separator"></div>
-                        {{ range .Site.Languages }}
-                        {{ $url := "" }}
-                        {{ if or $.IsHome (eq $.Section "tech") (eq $.Section "news") (eq $.Section "products") (eq
-                        $.Section "opportunities") }}
-                        {{ $url = printf "%s%s/" $.Site.BaseURL .Lang }}
-                        {{ else }}
-                        {{ $url = $.RelPermalink | relLangURL }}
+                <!-- Mobile Language Switcher -->
+                <div class="mobile-lang-switcher mobile-only">
+                    <div class="lang-separator"></div>
+                    {{ range .Site.Languages }}
+                    {{ $url := "" }}
+                    {{ if or $.IsHome (eq $.Section "tech") (eq $.Section "news") (eq $.Section "products") (eq
+                    $.Section "opportunities") }}
+                    {{ $url = printf "%s%s/" $.Site.BaseURL .Lang }}
+                    {{ else }}
+                    {{ $url = $.RelPermalink | relLangURL }}
+                    {{ end }}
+                    <a href="{{ $url }}"
+                        class="mobile-lang-link {{ if eq .Lang $.Site.Language.Lang }}current{{ end }}">
+                        <span class="flag">{{ .Params.flag }}</span>
+                        <span class="name">{{ .LanguageName }}</span>
+                        {{ if eq .Lang $.Site.Language.Lang }}
+                        <span class="checkmark">✓</span>
                         {{ end }}
-                        <a href="{{ $url }}"
-                            class="mobile-lang-link {{ if eq .Lang $.Site.Language.Lang }}current{{ end }}">
-                            <span class="flag">{{ .Params.flag }}</span>
-                            <span class="name">{{ .LanguageName }}</span>
-                            {{ if eq .Lang $.Site.Language.Lang }}
-                            <span class="checkmark">✓</span>
-                            {{ end }}
-                        </a>
-                        {{ end }}
-                    </div>
+                    </a>
+                    {{ end }}
+                </div>
 
             </nav>
 
             <!-- Language Switcher (Desktop) -->
             <div class="language-switcher desktop-only" id="language-switcher">
                 <button class="lang-button" id="lang-button" aria-expanded="false" aria-haspopup="true"
-                    aria-label="{{ i18n " aria_select_language" }}">
+                    aria-label='{{ i18n "aria_select_language" }}'>
                     <span class="current-flag">{{ .Site.Language.Params.flag }}</span>
                     <span class="current-lang">{{ .Site.Language.LanguageName }}</span>
                     <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
@@ -98,7 +99,7 @@
             </div>
 
             <!-- Mobile Menu Toggle -->
-            <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="{{ i18n " aria_toggle_menu" }}"
+            <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label='{{ i18n "aria_toggle_menu" }}'
                 aria-expanded="false" aria-controls="main-nav">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="hamburger-icon">
@@ -112,7 +113,3 @@
     <!-- Mobile Navigation Backdrop -->
     <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
 </header>
-
-<!-- Header styles are loaded via CSS imports in baseof.html -->
-
-<!-- Navigation JavaScript is handled in main.js -->
