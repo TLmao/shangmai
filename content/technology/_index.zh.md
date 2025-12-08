@@ -1,6 +1,8 @@
 ---
-title: "Technology Test"
-description: "Testing if this generates HTML"
+title: "案例展示"
+description: "专业的高分子材料生产商，专注于高质量橡胶制品研发与生产，提供工业密封件、减震制品等解决方案"
+url: /zh/tech/
 layout: list
 ---
-Test content.
+
+探索我们的技术创新与项目案例，了解我们如何为客户提供专业的高分子材料解决方案。
