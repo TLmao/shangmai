@@ -1,7 +1,6 @@
 ---
 title: "お客様事例"
 description: "高品質ゴム製品の研究開発と生産に特化したプロフェッショナルなポリマー材料メーカー、工業用シール、防振製品などのソリューションを提供"
-url: /ja/technology-legacy/
 layout: list
 ---
 

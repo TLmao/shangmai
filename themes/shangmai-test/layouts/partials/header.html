@@ -46,11 +46,14 @@
                     <div class="lang-separator"></div>
                     {{ range .Site.Languages }}
                     {{ $url := "" }}
-                    {{ if or $.IsHome (eq $.Section "tech") (eq $.Section "news") (eq $.Section "products") (eq
-                    $.Section "opportunities") }}
-                    {{ $url = printf "%s%s/" $.Site.BaseURL .Lang }}
+                    {{ $section := $.Section }}
+
+                    {{ if $.IsHome }}
+                    {{ $url = printf "/%s/" .Lang | relURL }}
                     {{ else }}
-                    {{ $url = $.RelPermalink | relLangURL }}
+                    {{ $targetPath := $section }}
+                    {{ if eq $section "technology" }}{{ $targetPath = "tech" }}{{ end }}
+                    {{ $url = printf "/%s/%s/" .Lang $targetPath | relURL }}
                     {{ end }}
                     <a href="{{ $url }}"
                         class="mobile-lang-link {{ if eq .Lang $.Site.Language.Lang }}current{{ end }}">
@@ -78,11 +81,14 @@
                 <ul class="lang-dropdown" id="lang-dropdown" role="menu" aria-labelledby="lang-button">
                     {{ range .Site.Languages }}
                     {{ $url := "" }}
-                    {{ if or $.IsHome (eq $.Section "tech") (eq $.Section "news") (eq $.Section "products") (eq
-                    $.Section "opportunities") }}
-                    {{ $url = printf "%s%s/" $.Site.BaseURL .Lang }}
+                    {{ $section := $.Section }}
+
+                    {{ if $.IsHome }}
+                    {{ $url = printf "/%s/" .Lang | relURL }}
                     {{ else }}
-                    {{ $url = $.RelPermalink | relLangURL }}
+                    {{ $targetPath := $section }}
+                    {{ if eq $section "technology" }}{{ $targetPath = "tech" }}{{ end }}
+                    {{ $url = printf "/%s/%s/" .Lang $targetPath | relURL }}
                     {{ end }}
                     <li role="none">
                         <a href="{{ $url }}" class="lang-option {{ if eq .Lang $.Site.Language.Lang }}current{{ end }}"

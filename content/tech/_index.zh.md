@@ -1,7 +1,6 @@
 ---
 title: "案例展示"
 description: "专业的高分子材料生产商，专注于高质量橡胶制品研发与生产，提供工业密封件、减震制品等解决方案"
-url: /zh/technology-legacy/
 layout: list
 ---
 

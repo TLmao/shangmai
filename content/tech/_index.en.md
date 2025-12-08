@@ -1,7 +1,6 @@
 ---
 title: "Projects"
 description: "Professional polymer material manufacturer, specializing in high-quality rubber products R&D and production, providing industrial seals, shock absorption products and other solutions"
-url: /en/technology-legacy/
 layout: list
 ---
 
